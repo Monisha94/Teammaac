@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+ var mainContainer = document.getElementById("myData");
+  if (this.readyState == 4 && this.status == 200) {
+    var myObj = JSON.parse(this.responseText);
+    for(x in myObj)
+     {
+    
+     var div = document.createElement("div");
+     div.innerHTML= myObj[x].Option3;
+//     document.getElementById("demo").innerHTML = myObj[x];
+      mainContainer.appendChild(div);
+     }
+    
+  }
+};
+xmlhttp.open("GET", "first.json", true);
+xmlhttp.send();
+</script>
+</body>
+</html>

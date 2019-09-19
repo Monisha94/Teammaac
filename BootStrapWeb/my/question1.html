@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"> 
+		<script src="bootstrap/js/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+<script src="assets/js/script.js"></script>	
+
+<script>
+function setCookie(cname,cvalue,exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	  var expires = "expires=" + d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	  
+	}
+	
+function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i < ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+	}
+function checkCookie() {
+	  var user=getCookie("username");
+	  if (user != "") {
+	    alert("Your answer is " + user);
+	  } else {
+	     user = prompt("Please enter your name:","");
+	     if (user != "" && user != null) {
+	       setCookie("username", user, 30);
+	     }
+	  }
+	}
+
+function myFunction() {
+	//alert(document.getElementsByName('option')[0].value);
+	var user=document.getElementsByName('option')[0].value;
+	//setCookie("username", user, 30);
+	var selected;
+	checkCookie();
+	var opt=document.getElementsByName('option');
+	for(i=0;i<opt.length;i++)
+		{
+			if(opt[i].checked)
+				{
+				selected=opt[i].value;
+				setCookie("username", selected, 30);
+				}
+		}
+
+	  //document.getElementById("order").value = "You ordered a coffee with: " + txt;
+	  
+	  
+	}
+	
+</script>
+
+
+
+</head>
+<body onload="fetchJson('q1')">
+<div class="pagination">
+  <a href="#">«</a>
+  <a href="question1.html">1</a>
+  <a class="active" href="question2.html">2</a>
+  <a href="question3.html">3</a>
+  <a href="frame1.html">4</a>
+  <a href="iframe.html">5</a>
+  <a href="chapter list.html">6</a>
+  <a href="#">»</a>
+</div>
+
+
+
+<div class="container">
+  <h2>Question </h2>
+  <div class="panel panel-default">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">
+    	<p id="demo"></p>
+    	<form>
+    	<input type="radio" name="option" value="A"><b id="option1"></b>
+    	<br>
+    	<input type="radio" name="option" value="B"><b id="option2"></b>
+    	<br>
+    	<input type="radio" name="option" value="C"><b id="option3"></b>
+    	<br>
+    	<input type="radio" name="option" value="D"><b id="option4"></b>
+    	</form>
+    	<br>
+    	
+<p id="option1"></p>
+    
+    </div>
+  </div>
+    <input type="button" onclick="myFunction()" value="Send order">
+  <ul class="pager">
+  <li class="previous"><a href="question2.html">Previous </a></li>
+  <li class="Next"><a href="question2.html">Next</a></li>
+  </ul>
+</div>
+<!-- 
+<input type="text" id="order" size="50">
+ -->
+
+</body>
+</html>

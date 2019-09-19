@@ -1,0 +1,33 @@
+{
+ "e1":{
+    "q1": "Who is the father of nation?",
+      "a": "lal bahadur shastri",
+      "b": "bhagat singh",
+      "c": "mahatma gandhi"
+  },
+   "e2":{
+    "q2": "The famous Dilwara Temples are situated in?",
+      "a": "uttar pradesh",
+      "b": "maharashtra",
+      "c": "karnataka"
+  },
+   "e3":{
+    "q3": "Who is the capital of karnataka?",
+      "a": "Bangalore",
+      "b": "Belagavi",
+      "c": "mysore"
+  },
+  "e4":{
+    "q4": "which year di India get independance?",
+      "a": "1948",
+      "b": "1947",
+      "c": "1847"
+  },
+   "e5":{
+    "q5": "Who is the strongest?",
+      "a": "Superman",
+      "b": "The Terminator",
+      "c": "Waluigi, obviously"
+ 
+  }
+}

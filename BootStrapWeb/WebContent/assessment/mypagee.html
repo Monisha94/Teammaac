@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<TITLE>Document Title</TITLE>
+
+<script type="text/javascript">
+
+
+function getCheckedRad() {
+radNum = getCookie(cookieName)
+
+if(!radNum){
+return
+}
+
+temp=radNum.split("&")
+
+for(var i=0;i<temp.length-1;i++){
+el=document.getElementById("set"+i)
+myInputs=el.getElementsByTagName("INPUT")
+myInputs[temp[i]].checked=true
+}
+
+}
+
+function saveCheckedRad(){
+var exp = new Date()
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000))
+
+c=0
+radNum=""
+while(document.getElementById("set"+c)){
+el=document.getElementById("set"+c)
+myInputs=el.getElementsByTagName("INPUT")
+
+for(var i=0;i<myInputs.length;i++){
+
+if(myInputs[i].checked){
+radNum+=i+"&"
+}
+
+}
+
+c++
+}
+
+setCookie(cookieName,radNum,exp)
+}
+
+cookieName="checked_rad2"
+expDays=365
+
+function setCookie(name, value, expires, path, domain, secure){// An adaptation of Dorcht's function for setting a cookie.
+if (!expires){expires = new Date()}
+document.cookie = name + "=" + escape(value) +
+((expires == null) ? "" : "; expires=" + expires.toGMTString()) +
+((path == null) ? "" : "; path=" + path) +
+((domain == null) ? "" : "; domain=" + domain) +
+((secure == null) ? "" : "; secure")
+}
+
+function getCookie(name){
+var arg = name + "="
+var alen = arg.length
+var clen = document.cookie.length
+var i = 0
+while (i < clen) {
+var j = i + alen
+if (document.cookie.substring(i, j) == arg)
+return getCookieVal(j)
+i = document.cookie.indexOf(" ", i) + 1
+if (i == 0) break
+}
+return null
+}
+
+function getCookieVal(offset) {
+var endstr = document.cookie.indexOf (";", offset)
+if (endstr == -1)
+endstr = document.cookie.length
+return unescape(document.cookie.substring(offset, endstr))
+}
+
+function deleteCookie(name,path,domain) { // An adaptation of Dorcht's function for deleting a cookie.
+document.cookie = name + "=" +
+((path == null) ? "" : "; path=" + path) +
+((domain == null) ? "" : "; domain=" + domain) +
+"; expires=Thu, 01-Jan-00 00:00:01 GMT"
+}
+
+// add onload="getCheckedRad()" onunload="saveCheckedRad()" to the opening BODY tag
+</script>
+
+
+</HEAD>
+<BODY onload="getCheckedRad()" onunload="saveCheckedRad()">
+
+
+<form name="myform">
+
+<div id="set0">
+<input type="radio" name="rad0" checked>
+<input type="radio" name="rad0">
+<input type="radio" name="rad0">
+<input type="radio" name="rad0">
+<input type="radio" name="rad0">
+</div>
+
+<div id="set1">
+<input type="radio" name="rad1" checked>
+<input type="radio" name="rad1">
+<input type="radio" name="rad1">
+<input type="radio" name="rad1">
+<input type="radio" name="rad1">
+</div>
+
+<div id="set2">
+<input type="radio" name="rad2" checked>
+<input type="radio" name="rad2">
+<input type="radio" name="rad2">
+<input type="radio" name="rad2">
+<input type="radio" name="rad2">
+</div>
+
+</form>
+
+</BODY>
+</HTML>

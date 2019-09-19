@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+window.onload=function()
+{
+	var username = document.getElementById('username').value;
+	var username1 = document.getElementById('username1').value;
+	var button = document.getElementById('submit');
+	button.onclick = function()
+	{
+		setCookie('username',username,1);
+		setCookie('username1',username1,1);
+		window.location.href="page2.html";
+	}
+}
+
+function setCookie(c_name,value,expiredays)
+{
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate()+expiredays);
+	document.cookie=c_name+ "=" +escape(value)+
+	((expiredays==null) ? "" : ";expires="+exdate.toUTCString());
+}
+</script>
+</head>
+
+<body>
+Username
+<input type="text" id="username" name="username" size="15" value="" />
+<input type="text" id="username1" name="username1" size="15" value="" />
+<input type="button" id="submit" value="Next" />
+</body>
+</html>

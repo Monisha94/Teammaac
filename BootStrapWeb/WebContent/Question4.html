@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="JSfiles/java.js"></script>
+</head>
+<script>
+	function radioValidation() {
+
+		var gender = document.getElementsByName('gender');
+		var genValue = false;
+
+		for (var i = 0; i < gender.length; i++) {
+			if (gender[i].checked == true) {
+				genValue = true;
+			}
+		}
+		if (!genValue) {
+			alert("Please Choose atleast one option");
+			return false;
+		}
+
+	}
+
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toGMTString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+	}
+
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	function checkCookie() {
+		var user = getCookie("username");
+		if (user != "") {
+			alert("Your answer is " + user);
+		} else {
+			user = prompt("Please enter your name:", "");
+			if (user != "" && user != null) {
+				setCookie("username", user, 30);
+			}
+		}
+	}
+	function select(qK) {
+		//alert(document.getElementsByName('option')[0].value);
+		//var user=document.getElementsByName('ques1')[0].value;
+		//setCookie("username", user, 30);
+		var selected;
+		//alert("hi");
+		var opt = document.getElementsByName('gender');
+		for (i = 0; i < opt.length; i++) {
+			if (opt[i].checked) {
+				var option = "g" + (i + 1);
+				selected = document.getElementById(option).value;
+				//alert(option);//op1
+				// alert(selected);//a b c d
+				//selected=opt[i].value;
+				setCookie(qK, selected, 30);
+				//checkCookie();
+			}
+		}
+
+		//document.getElementById("order").value = "You ordered a coffee with: " + txt;
+
+	}
+</script>
+
+
+<body onload="fetchQuestion('e4')">
+
+	<marquee>
+		<h1 style="color: #0059b3">Welcome online Quiz portal</h1>
+	</marquee>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="jumbotron">
+				<div class="panel-group">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h4 style="text-align: center;">Question 4 :</h4>
+							<h1 style="text-align: center;">
+								<b id="myData" style="font-size: 20px"> </b>
+							</h1>
+
+						</div>
+						<div class="panel-body">
+							<form name="form">
+								<input type="radio" id="g1" name="gender" value="a"
+									onclick="reset_msg();">&nbsp&nbsp&nbsp<b id="myData2"
+									style="font-size: 20px"> </b><br>
+								<br> <input type="radio" id="g2" name="gender" value="b"
+									onclick="reset_msg();">&nbsp&nbsp&nbsp<b id="myData3"
+									style="font-size: 20px"> </b><br>
+								<br> <input type="radio" id="g3" name="gender" value="c"
+									onclick="reset_msg();">&nbsp&nbsp&nbsp<b id="myData4"
+									style="font-size: 20px"> </b><br>
+								<br> <input type="radio" id="g4" name="gender" value="d"
+									onclick="reset_msg();">&nbsp&nbsp&nbsp<b id="myData5"
+									style="font-size: 20px"> </b> <br> <br> <a
+									href="Question3.html"><button type="button"
+										class="btn btn-outline-success btn-lg "
+										onclick="return radioValidation();" style="float: left;">Previous</button></a>
+								<p align="right">
+									<a href="Final.html"><button type="button"
+											class="btn btn-danger btn-lg "
+											onclick=" select('e4') ; return radioValidation();">Next</button></a>
+								</p>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul class="pagination justify-content-end pagination-lg">
+				<h3>Page Number :</h3>
+				&nbsp&nbsp
+				<li class="page-item"><a class="page-link"
+					href="Question1.html;">1</a></li>
+				<li class="page-item"><a class="page-link"
+					href="Question2.html;">2</a></li>
+				<li class="page-item"><a class="page-link"
+					href="Question3.html;">3</a></li>
+				<li class="page-item"><a class="page-link"
+					href="Question1.html">4</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="JSfiles/java.js"></script>
+</body>
+</html>

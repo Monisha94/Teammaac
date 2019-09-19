@@ -1,0 +1,39 @@
+{
+    "e1":{
+        "Question": "1.Who is the captain of Indian cricket team?",
+        "Option1": "Dhoni",
+        "Option2": "Virat kohli",
+        "Option3": "Sachin tendulkar",
+         "Option4": "Raina",
+         "answer" : "b"
+    }
+ ,
+    "e2":{
+    	"Question": "2.Capital city of Karnataka?",
+        "Option1": "Raichur",
+        "Option2": "Udupi",
+        "Option3": "Hubli",
+        "Option4": "Banglore",
+        "answer" : "d"
+    }
+ ,
+    "e3":{
+    	"Question": "3. What is the minimum age for the eligibility to be a Presidential candidate?",
+        "Option1": "30",
+        "Option2": "28",
+        "Option3": "35",
+        "Option4": "21",
+        "answer" : "c"
+    }
+,    
+     "e4":{
+     	"Question": "4. Who is regarded as the head of the Indian state?",
+        "Option1": "Prime Minister",
+        "Option2": "President",
+        "Option3": "Chief Justice of India ",
+        "Option4": "None of the above",
+        "answer" : "b"
+    }
+	 
+    
+}

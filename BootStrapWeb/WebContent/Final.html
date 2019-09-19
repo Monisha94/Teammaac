@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="JSfiles/java.js"></script>
+</head>
+<script type="text/javascript" src="JSfiles/java.js"></script>
+<script>
+
+
+
+function setCookie(cname,cvalue,exdays) {
+	  var d = new Date();
+	  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	  var expires = "expires=" + d.toGMTString();
+	  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	  
+	}
+
+	function getCookie(cname) {
+	  var name = cname + "=";
+	  var decodedCookie = decodeURIComponent(document.cookie);
+	  var ca = decodedCookie.split(';');
+	  for(var i = 0; i < ca.length; i++) {
+	    var c = ca[i];
+	    while (c.charAt(0) == ' ') {
+	      c = c.substring(1);
+	    }
+	    if (c.indexOf(name) == 0) {
+	      return c.substring(name.length, c.length);
+	    }
+	  }
+	  return "";
+	}
+	function checkCookie() {
+	  var user=getCookie("username");
+	  if (user != "") {
+	    alert("Your answer is " + user);
+	  } else {
+	     user = prompt("Please enter your name:","");
+	     if (user != "" && user != null) {
+	       setCookie("username", user, 30);
+	     }
+	  }
+	}
+function finalScore() {
+    var score = 0;
+    readTextFile("JSON/question.json", function(text){
+    var data = JSON.parse(text);
+    //alert("hi");
+    for (var x in data)  {
+     //alert(getCookie(x));
+         if ( data[x].answer == getCookie(x) ) {
+            score=score+5;
+         }
+         else
+        	 {
+        	 score=score-0.5;
+        	 }
+      }
+    //  alert(score);
+    document.getElementById("demo9").innerHTML= " YOUR FINAL SCORE IS :  " + score  +" OUT OF 20";
+  
+    //alert( " YOUR FINAL SCORE IS : "  +score);
+    //document.write(score);
+    }); 
+ }
+//document.getElementById("demo9").innerHTML=finalScore();
+ 
+</script>
+
+<body >
+
+
+ <div class="container">
+ <div class="jumbotron" >
+<marquee><p style="font-size:60px;color:orange;text-align:center">CONGRAULATIONS!!!!</p></marquee>
+    <div class="panel-group">
+    <div class="panel panel">
+    <div class="panel-heading" ><h2>THANK YOU!!!!!!PLEASE PRESS THE SUBMIT BUTTON TO KNOW YOUR RESULT</h2></div>
+     <div class="panel-body">
+    
+    <p id="demo9">
+     <p align="center">
+     <button type="button" class="btn btn-danger btn-lg "  onclick="finalScore() " >SUBMIT</button>
+     </p>
+     
+   </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="JSfiles/java.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+    "e1":{
+        
+        "Option1": "J",
+        "Option2": "Raichur",
+        "Option3": "Onion",
+         "Option4": "Red"
+    }
+ ,
+    "e2":{
+        "Option1": "R",
+        "Option2": "Udupi",
+        "Option3": "Apple",
+        "Option4": "White"
+    }
+ ,
+    "e3":{
+        "Option1": "A",
+        "Option2": "Hubli",
+        "Option3": "Cucumber",
+        "Option4": "Orange"
+    }
+,    
+     "e4":{
+        "Option1": "S",
+        "Option2": "Banglore",
+        "Option3": "Pumpkin",
+        "Option4": "Red"
+    }
+
+  }

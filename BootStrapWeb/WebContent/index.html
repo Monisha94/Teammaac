@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link type="text/css" rel="stylesheet" href="rule.css"></link>
+ </head>
+  <body onload="fetchQuestion('e1')">
+
+ <div class="container">
+ <div class="jumbotron">
+<div class="jumbotron" >
+    <div class="panel-group">
+    <div class="panel panel-warning">
+    <div class="panel-heading"> <h1 style="text-align:center;color:   #ff6600"> WELCOME TO THE ONLINE QUIZ </h1>
+    
+     </div>
+     <div class="panel-body">
+     <br>
+     <br>
+     <br>
+   <img src="quiz.jpg" alt="" width="200" height="200"  style="  display: block;margin-left: auto;
+  margin-right: auto;">  
+   
+   <br>
+  <button type="button" class="btn btn-danger btn-lg "  style="float: left;" id="myBtn">RULES</button>
+  <p align="right">
+  <a href="Question1.html"><button type="button" class="btn btn-danger btn-lg " >START</button></a>
+</p>
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <pre>          1.The quiz contains 4 questions.
+          2.5 point will be awarded for each correct answer.
+          3.Time limit - 15 minutes.
+          4.5 marks for the correct answer and negative 1 marks for the wrong answer.
+          5.The final score is displayed at the end of the quiz.
+  </pre>
+  </div>
+
+</div>
+
+  <script>
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+  
+   </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="JSfiles/java.js"></script>
+</body>
+</html>
